@@ -8,6 +8,10 @@ describe('tests create-files function', () => {
     fs.mkdir('./friend-files', done);
   });
 
+  afterAll(done => {
+    fs.rmdir('./fixtures', done);
+  });
+
   afterEach(done => {
     fs.readdir('./friend-files', (err, files) => {
       if(files.length === 0) done();

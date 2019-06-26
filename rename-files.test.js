@@ -8,6 +8,10 @@ describe('rename functions', () => {
     fs.mkdir('./friend-files', done);
   });
 
+  afterAll(done => {
+    fs.rmdir('./fixtures', done);
+  });
+
   beforeEach(done => {
     createFiles('./friend-files', 2, done);
   });
