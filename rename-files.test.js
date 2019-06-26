@@ -9,7 +9,7 @@ describe('rename functions', () => {
   });
 
   afterAll(done => {
-    fs.rmdir('./fixtures', done);
+    fs.rmdir('./friend-files', done);
   });
 
   beforeEach(done => {

@@ -9,7 +9,7 @@ describe('tests create-files function', () => {
   });
 
   afterAll(done => {
-    fs.rmdir('./fixtures', done);
+    fs.rmdir('./friend-files', done);
   });
 
   afterEach(done => {
