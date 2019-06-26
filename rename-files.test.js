@@ -5,6 +5,10 @@ const { createFiles } = require('./create-files');
 
 describe('rename functions', () => {
   beforeEach(done => {
+    fs.mkdir('./friend-files', done);
+  });
+  
+  beforeEach(done => {
     createFiles('./friend-files', 2, done);
   });
   afterEach(done => {
