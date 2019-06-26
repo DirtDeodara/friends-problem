@@ -1,6 +1,6 @@
 
 const fs = require('fs');
-const { readDirectory, rename , getModifiedTime } = require('./rename-files');
+const { readDirectory, rename , getModifiedTime, readFile } = require('./rename-files');
 const { createFiles } = require('./create-files');
 
 describe('rename functions', () => {
@@ -49,6 +49,16 @@ describe('rename functions', () => {
 
       expect(modifiedTime).toEqual(expect.any(String));
       done();
+    });
+  });
+
+  it('gets the contents of a file', done => {
+    fs.readFile('./friend-files/0.txt', { encoding: 'utf8' }, (err, expectedContent) => {
+      readFile('./friend-files/0.txt', (err, resultContent) => {
+        expect(err).toBeFalsy();
+        expect(resultContent).toEqual(expectedContent);
+        done();
+      });
     });
   });
 
