@@ -4,10 +4,10 @@ const { readDirectory, rename , getModifiedTime, readFile } = require('./rename-
 const { createFiles } = require('./create-files');
 
 describe('rename functions', () => {
-  beforeEach(done => {
+  beforeAll(done => {
     fs.mkdir('./friend-files', done);
   });
-  
+
   beforeEach(done => {
     createFiles('./friend-files', 2, done);
   });

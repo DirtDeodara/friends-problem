@@ -4,10 +4,10 @@ const fs = require('fs');
 const { createFiles, randomName } = require('./create-files');
 
 describe('tests create-files function', () => {
-  beforeEach(done => {
+  beforeAll(done => {
     fs.mkdir('./friend-files', done);
   });
-  
+
   afterEach(done => {
     fs.readdir('./friend-files', (err, files) => {
       if(files.length === 0) done();
