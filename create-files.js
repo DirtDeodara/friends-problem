@@ -12,18 +12,20 @@ const randomName = (arr) => {
 
 randomName(nameArray);
 
-const createFiles = (n, callback) => {
+const createFiles = (directory, n, callback) => {
+  let writtenSoFar = 0;
   for(let i = 0; i < n; i++) {
     const newRandomName = randomName(nameArray);
-    fs.writeFile(`./friend-files/${i}.txt`, newRandomName, (err) => {
-      if(err) {
-        callback(err);
-      }
+    fs.writeFile(`${directory}/${i}.txt`, newRandomName, (err) => {
+      if(err) return callback(err);
+      writtenSoFar += 1;
+
+      if(writtenSoFar === n) callback();
     });
   }
 };
 
-createFiles(100);
+// createFiles(2);
 
 module.exports = { randomName, createFiles };
 
