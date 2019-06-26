@@ -1,6 +1,6 @@
 
 const fs = require('fs');
-const { readDirectory, rename } = require('./rename-files');
+const { readDirectory, rename , getModifiedTime } = require('./rename-files');
 const { createFiles } = require('./create-files');
 
 describe('rename functions', () => {
@@ -42,4 +42,15 @@ describe('rename functions', () => {
       });
     });
   });
+
+  it('gets the last modified date of a certain file', done => {
+    getModifiedTime('./friend-files/0.txt', (err, modifiedTime) => {
+      expect(err).toBeFalsy();
+
+      expect(modifiedTime).toEqual(expect.any(String));
+      done();
+    });
+  });
+
+
 });
